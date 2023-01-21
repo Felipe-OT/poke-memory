@@ -134,8 +134,8 @@ function App() {
         setClickedCardsId([]);
         setClickedPokemonsId([]);
         setFlippedMatched([]);
-        startNewGame();
         setTimeout(() => {
+          startNewGame();
           setEnableClick(true);
         }, 1000);
       }, 2000);
