@@ -24,7 +24,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'back-card-gengar': "url('src/assets/back-cards/back-card-gengar.jpg')"
+        'back-card-gengar': "url('back-card-gengar.jpg')"
       }
     },
   },

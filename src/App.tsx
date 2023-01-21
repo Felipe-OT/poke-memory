@@ -65,7 +65,7 @@ function App() {
   };
 
   // Suffle the list of cards with pairs *****NOT IN USE*****
-  const shuffle = (array: []) => {
+  const shuffle = (array: IPokemonsCardsList[]) => {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       const temp = array[i];
@@ -96,7 +96,8 @@ function App() {
       listOfPokemonsInGame.forEach((e) => {
         list.push(e, e);
       });
-      setListWithPairs(list);
+      let result = shuffle(list)
+      setListWithPairs(result);
     }
   }, [listOfPokemonsInGame]);
 
