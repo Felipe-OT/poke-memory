@@ -147,8 +147,8 @@ function App() {
   },[listWithPairs])
 
   return (
-    <div className="bg-gradient-to-b from-[#6E9DAF] to-[#75CB9A] w-screen h-screen flex">
-      <div className="flex flex-col gap-32 items-center w-full my-24">
+    <div className="bg-gradient-to-b from-[#6E9DAF] to-[#75CB9A] w-screen min-h-screen flex">
+      <div className="flex flex-col gap-20 items-center w-full my-24">
         <div>
           <h1 className="text-center text-7xl font-semibold text-white mb-10">
             PokeMemory
@@ -178,20 +178,22 @@ function App() {
           <span>Primeiro: {clickedPokemonsId[0]}</span>
           <span>Ultimo: {clickedPokemonsId[1]}</span>
         </div>
-        <ul className="w-full flex gap-5 max-w-lg justify-between flex-wrap ">
-          {listWithPairs.map((card, i) => (
-            <Card
-              key={i}
-              disabled={!enableClick ? true : false}
-              clicked={(pokemonId) => cardWasClicked(pokemonId, i)}
-              id={i}
-              flipWrong={mustFlip}
-              cardId={card.id}
-              name={card.name}
-              frontImage={card.sprites}
-            />
-          ))}
-        </ul>
+        <div className="container mx-auto">
+          <ul className={`gap-y-5 gap-x-5 grid place-items-center justify-center ${selectedDifficult == 'Fácil' && 'grid-cols-[112px_minmax(112px,_112px)_112px_112px]'} ${selectedDifficult == 'Médio' && 'grid-cols-[112px_minmax(112px,_112px)_112px_112px]'} ${selectedDifficult == 'Difícil' && 'grid-cols-8'}`}>
+            {listWithPairs.map((card, i) => (
+              <Card
+                key={i}
+                disabled={!enableClick ? true : false}
+                clicked={(pokemonId) => cardWasClicked(pokemonId, i)}
+                id={i}
+                flipWrong={mustFlip}
+                cardId={card.id}
+                name={card.name}
+                frontImage={card.sprites}
+              />
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
